@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="__STATIC__/js/bootstrap.min.css"> 
+	<script type="text/javascript" src="__STATIC__/js/jquery-3.3.1.min.js"></script>
+	<script type="text/javascript" src="__STATIC__/js/bootstrap.min.js"></script>
+<script>
+function refresh(){
+var vcode = document.getElementById('vcode');
+vcode.src = '{:captcha_src()}?'+Math.random();
+}
+</script>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="utf-8">
+</head>
+<style type="text/css">
+body {background-image:url(__STATIC__/image/bg10.jpg);
+	 background-size: 100% 100%;
+}
+html{
+	width: 100%;
+	height:100%;
+}
+.login{
+	margin: 10% auto;
+	background-color: #CCDDFF;
+	width: 30%;
+	height: 48%;
+	opacity: 0.78;
+	border-radius:10px;
+}
+</style>
+	<title>用户注册</title>
+</head>
+<body class="container" onload="refresh()">
+<a class="btn btn-info btn-lg btn-block" href="{:url('index/Index/index')}" role="button">返回首页</a>
+<div class="login">
+
+	<form method="post" action="insert">
+	<h3 style="text-align: center">用户注册</h3>
+  <div class="form-group">
+    <label>用户名</label>
+    <input type="text" class="form-control" name="name" placeholder="name">
+  </div>
+  <div class="form-group">
+    <label>密码</label>
+    <input type="password" class="form-control"  name="password" placeholder="Password">
+  </div>
+  	  <div class="form-group">
+    <label>重复密码</label>
+    <input type="password" class="form-control"  name="repassword" placeholder="rePassword">
+  </div>
+
+	<div class="form-group">
+    <label style="font-size: 18px;">邮箱</label>
+    <input type="email" name="email" class="form-control"  id="exampleInputEmail1" placeholder="Email">
+  </div>
+
+	 <div class="form-group">
+    <label>验证码</label>
+    <input type="text" class="form-control"  name="code" placeholder="验证码">
+    <div><img src="{:captcha_src()}" alt="captcha" style="width: 100%;height:40px;" id="vcode" onclick="this.src='{:captcha_src()}?f5='+Math.random()"/></div>
+  </div>
+  <button type="submit" class="btn btn-success btn-block btn-lg" >提交</button>
+  <br><br>
+  <p style="font-size: 7px;">16计算机应用技术2班梁凯丰</p>
+</form>
+
+</div>
+</body>
+</html>
